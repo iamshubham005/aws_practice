@@ -21,10 +21,7 @@ data "aws_ami" "app_ami" {
     values = ["amzn2-ami-kernel-5.10**"]
   }
 }
-resource "aws_key_pair" "mykey" {
-  key_name   = "myfusionkey"
-  public_key = file("${path.module}/id_rsa.pub")
-}
+
 
 resource "aws_instance" "instance-1" {
   ami           = data.aws_ami.app_ami.id
